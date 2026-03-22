@@ -1,0 +1,48 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twitter Media Downloader 設定</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="card">
+        <h1>Twitter Media Downloader</h1>
+        <p class="lead">設定下載到 Chrome 預設下載資料夾中的子路徑與檔名格式。</p>
+
+        <form id="settings-form">
+          <label class="field">
+            <span>下載子資料夾</span>
+            <input id="downloadSubfolder" name="downloadSubfolder" type="text" placeholder="{author}" />
+            <small>可用變數：`{author}`、`{tweetId}`、`{index}`、`{type}`。例如：`{author}/favorites`。</small>
+          </label>
+
+          <label class="field">
+            <span>檔名格式</span>
+            <input id="fileNamePattern" name="fileNamePattern" type="text" placeholder="{author}_{tweetId}_{index}" />
+            <small>可用變數：`{author}`、`{tweetId}`、`{index}`、`{type}`</small>
+          </label>
+
+          <label class="checkbox-row">
+            <input id="askWhereToSave" name="askWhereToSave" type="checkbox" />
+            <span>每次下載前都讓 Chrome 顯示另存新檔視窗</span>
+          </label>
+
+          <div class="actions">
+            <button type="submit">儲存設定</button>
+            <span id="status" aria-live="polite"></span>
+          </div>
+        </form>
+
+        <section class="note">
+          <h2>限制說明</h2>
+          <p>純 Chrome 擴充套件通常無法直接指定像 `D:\media\twitter` 這種任意絕對路徑，只能下載到瀏覽器預設下載資料夾中的子資料夾。</p>
+          <p>如果你要真正寫入任意路徑，下一步可以再幫你接上 Native Messaging 本機小程式。</p>
+        </section>
+      </section>
+    </main>
+    <script src="options.js"></script>
+  </body>
+</html>

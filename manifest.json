@@ -1,0 +1,40 @@
+﻿{
+  "manifest_version": 3,
+  "name": "Twitter Media Downloader",
+  "version": "0.1.0",
+  "description": "Add download buttons to Twitter/X posts with media and save them into a configured download subfolder.",
+  "permissions": [
+    "downloads",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://twitter.com/*",
+    "https://x.com/*",
+    "https://pbs.twimg.com/*",
+    "https://video.twimg.com/*",
+    "https://cdn.syndication.twimg.com/*"
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "options_page": "src/options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://twitter.com/*",
+        "https://x.com/*"
+      ],
+      "js": [
+        "src/content.js"
+      ],
+      "css": [
+        "src/content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Twitter Media Downloader",
+    "default_popup": "src/popup.html"
+  }
+}

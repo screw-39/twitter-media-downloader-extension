@@ -1,0 +1,27 @@
+﻿.tmd-download-wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+}
+
+.tmd-download-button {
+  border: 1px solid rgba(29, 155, 240, 0.4);
+  background: rgba(29, 155, 240, 0.12);
+  color: rgb(29, 155, 240);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease, opacity 0.18s ease;
+}
+
+.tmd-download-button:hover:not(:disabled) {
+  background: rgba(29, 155, 240, 0.2);
+}
+
+.tmd-download-button:disabled {
+  cursor: default;
+  opacity: 0.75;
+}
